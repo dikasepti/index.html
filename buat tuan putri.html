@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Cinta Tuan Putri Septii ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#4c0519',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Great Vibes', 'cursive'],
+                        playfair: ['Playfair Display', 'serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at center, #240618 0%, #12030d 60%, #060105 100%);
+            color: #fce7f3;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Glassmorphism Premium */
+        .glass-card {
+            background: rgba(30, 9, 23, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(244, 63, 94, 0.15);
+        }
+
+        .photo-frame {
+            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.35), 0 0 25px rgba(251, 113, 133, 0.4);
+            border: 6px solid rgba(255, 255, 255, 0.95);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: #111;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.6), 0 0 35px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Animated Floating Rose Petals */
+        .petal {
+            position: absolute;
+            background: radial-gradient(circle, #fda4af 0%, #e11d48 100%);
+            border-radius: 150% 0 150% 0;
+            opacity: 0.75;
+            pointer-events: none;
+            filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.6));
+            animation: animatePetal 12s linear infinite;
+        }
+
+        @keyframes animatePetal {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) translateX(0) rotate(0deg) scale(0.6);
+            }
+            15% { opacity: 0.95; }
+            85% { opacity: 0.95; }
+            100% {
+                opacity: 0;
+                transform: translateY(105vh) translateX(120px) rotate(720deg) scale(1.2);
+            }
+        }
+
+        /* Slide Transition Animations */
+        .slide {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.92) translateY(25px);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Envelope Interactive CSS */
+        .envelope-wrapper {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .envelope {
+            position: relative;
+            width: 250px;
+            height: 155px;
+            background: #be123c;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: transform 0.6s ease;
+        }
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 125px solid transparent;
+            border-right: 125px solid transparent;
+            border-top: 85px solid #e11d48;
+            transform-origin: top;
+            transition: transform 0.6s ease, z-index 0.6s ease;
+            z-index: 3;
+        }
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        .envelope-letter {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            width: 230px;
+            height: 135px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            color: #881337;
+            transition: transform 0.6s ease;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .envelope.open .envelope-letter {
+            transform: translateY(-65px) scale(1.05);
+            z-index: 4;
+        }
+
+        /* Vinyl Record Player Animation */
+        .vinyl-spin {
+            animation: spin 4s linear infinite;
+        }
+        .vinyl-paused {
+            animation-play-state: paused;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Upload Badge Hover */
+        .upload-badge {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        .upload-badge:hover {
+            background: rgba(225, 29, 72, 0.9);
+            transform: scale(1.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(244, 63, 94, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen relative overflow-hidden flex items-center justify-center">
+
+    <!-- Canvas Bintang & Particle -->
+    <canvas id="bgCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+    <div id="petals-container" class="absolute inset-0 pointer-events-none z-0"></div>
+
+    <!-- Hidden Input Multiple Photos & Audio -->
+    <input type="file" id="global-photo-input" accept="image/*" class="hidden">
+    <input type="file" id="audio-input" accept="audio/*" class="hidden">
+
+    <!-- Header Navigation & Controls -->
+    <header class="fixed top-4 left-4 right-4 z-50 flex items-center justify-between pointer-events-none">
+        <div class="pointer-events-auto glass-card px-4 py-2 rounded-full flex items-center gap-2 border border-rose-500/30 shadow-lg">
+            <i class="fas fa-crown text-amber-400 text-xs animate-bounce"></i>
+            <span class="font-serif text-rose-200 text-xs md:text-sm font-bold tracking-wide">Tuan Putri Septii</span>
+        </div>
+
+        <div class="pointer-events-auto flex items-center gap-2 md:gap-3">
+            <button onclick="toggleUploadButtons()" class="glass-card px-3 py-2 rounded-full text-rose-300 hover:text-white transition-all text-xs font-medium shadow-lg" title="Sembunyikan Mode Edit">
+                <i id="eye-icon" class="fas fa-eye"></i>
+            </button>
+
+            <button onclick="document.getElementById('audio-input').click()" class="upload-btn glass-card px-3 py-2 rounded-full flex items-center gap-1.5 text-amber-300 hover:text-white transition-all text-xs font-medium border border-amber-400/30 shadow-lg" title="Upload Musik Kesukaan">
+                <i class="fas fa-music text-xs"></i>
+                <span class="hidden md:inline">Ganti Lagu MP3</span>
+            </button>
+
+            <button id="music-toggle" class="glass-card px-3.5 py-2 rounded-full flex items-center gap-2.5 text-rose-200 hover:text-white transition-all shadow-lg text-xs font-medium border border-rose-500/30">
+                <div id="vinyl-disc" class="w-5 h-5 rounded-full bg-gradient-to-tr from-gray-900 via-gray-800 to-black flex items-center justify-center border border-rose-400/50 vinyl-spin vinyl-paused">
+                    <div class="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+                </div>
+                <span id="music-text" class="hidden sm:inline">Putar Musik</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Audio Element -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112189.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN SLIDER CONTAINER -->
+    <main class="relative w-full max-w-4xl h-[88vh] md:h-[82vh] mx-4 z-10 flex items-center justify-center">
+
+        <!-- SLIDE 1: Secret Envelope -->
+        <div class="slide active" data-slide="1">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-2">
+                        <img id="img-slide-1" src="WhatsApp Image 2026-10-25 at 20.12.23 (1).jpeg" alt="Tuan Putri Septii 1" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(1)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Spesial Untukmu...</span>
+                    <h1 class="text-3xl md:text-5xl font-serif text-rose-100 font-bold mt-1 mb-3">Hai Tuan Putri Septii ❤️</h1>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed mb-4">
+                        Web kecil ini kubuat khusus dengan rasa sayang buat nemenin hari kamu. Setiap slide menyimpan alasan kenapa kamu begitu istimewa!
+                    </p>
+
+                    <div class="envelope-wrapper mb-4 inline-block" onclick="toggleEnvelope(this)">
+                        <div class="envelope" id="main-envelope">
+                            <div class="envelope-flap"></div>
+                            <div class="envelope-letter flex flex-col justify-center items-center text-center">
+                                <i class="fas fa-heart text-rose-500 text-lg mb-1"></i>
+                                <p class="font-handwriting text-base font-bold text-rose-900 leading-tight">"Septii adalah takdir manis paling terindah dalam hidupku."</p>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center text-white font-handwriting text-base md:text-lg font-bold z-10 pointer-events-none">
+                                <i class="fas fa-envelope-open-text mr-2 text-pink-200"></i> Klik Buka Surat
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Sihir Senyumanmu -->
+        <div class="slide" data-slide="2">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Senyuman Candu</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Sihir Senyuman Manismu</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed mb-4">
+                        Senyum kamu di foto ini tuh candu banget, langsung bikin anget hati dan balikin mood sekejap mata. Senyummu punya sihir ajaib tersendiri!
+                    </p>
+                    <p class="text-rose-300 font-handwriting text-xl italic">"Tetaplah tersenyum manis ya manisku..."</p>
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform rotate-3">
+                        <img id="img-slide-2" src="WhatsApp Image 2026-10-25 at 20.12.21.jpeg" alt="Tuan Putri Septii 2" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(2)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Warna Hari-hariku -->
+        <div class="slide" data-slide="3">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-3">
+                        <img id="img-slide-3" src="WhatsApp Image 2026-10-25 at 20.12.24.jpeg" alt="Tuan Putri Septii 3" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(3)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Terima Kasih Ya...</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Pewarna Hari-hariku</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed">
+                        Makasih ya udah selalu ada dan bikin hari-hari yang biasa aja jadi jauh lebih berwarna, penuh tawa, dan berkesan. Bersamamu selalu terasa spesial!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Gaya Anggun & Gemes -->
+        <div class="slide" data-slide="4">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Gemes Banget!</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Gaya Anggun & Lucu</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed">
+                        Mau pose serius, ketawa, atau pose gemes kayak gini, penampilan Tuan Putri Septii tuh selalu juara bikin gemes dan selalu sukses mencuri perhatianku!
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform rotate-2">
+                        <img id="img-slide-4" src="WhatsApp Image 2026-10-25 at 20.12.22 (2).jpeg" alt="Tuan Putri Septii 4" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(4)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Pantun Spesial #1 -->
+        <div class="slide" data-slide="5">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-2">
+                        <img id="img-slide-5" src="WhatsApp Image 2026-10-25 at 20.12.22 (1).jpeg" alt="Tuan Putri Septii 5" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(5)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Bait Pantun Romantis</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Pantun Untuk Tuan Putri 📜</h2>
+                    <div class="bg-rose-950/40 border border-rose-500/30 p-4 rounded-2xl font-handwriting text-lg text-rose-200 leading-relaxed">
+                        "Beli ketan di jalan raya,<br>
+                        Jangan lupa beli buah duku.<br>
+                        Hai Tuan Putri Septii yang manis rupanya,<br>
+                        Cuma kamu satu-satunya di hatiku! ❤️"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Rumah Tempat Pulang -->
+        <div class="slide" data-slide="6">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Tempat Paling Nyaman</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Rumah Tempat Hatiku Pulang</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed">
+                        Di mana pun aku berada, dekapan perhatian dan kehadiran Septii tuh adalah rumah paling nyaman buat aku pulang dan melepas lelah.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform rotate-3">
+                        <img id="img-slide-6" src="WhatsApp Image 2026-10-25 at 20.12.22.jpeg" alt="Tuan Putri Septii 6" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(6)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Pantun Spesial #2 -->
+        <div class="slide" data-slide="7">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-3">
+                        <img id="img-slide-7" src="WhatsApp Image 2026-10-25 at 20.12.23 (2).jpeg" alt="Tuan Putri Septii 7" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(7)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Pantun Kedua</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Pegangan Semangatku 🌟</h2>
+                    <div class="bg-rose-950/40 border border-rose-500/30 p-4 rounded-2xl font-handwriting text-lg text-rose-200 leading-relaxed">
+                        "Jalan-jalan ke kota Tegal,<br>
+                        Mampir sebentar beli asinan.<br>
+                        Gak peduli cuaca lagi terik atau gagal,<br>
+                        Yang penting senyum Septii selalu jadi pegangan! ✨"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Juara Manisnya -->
+        <div class="slide" data-slide="8">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Pesona Hijab Manis</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Selalu Juara Manisnya</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed">
+                        Jujur dari hati paling dalam, Tuan Putri Septii mau pakai hijab warna apa aja, outfit gaya apa aja, tetap selalu juara manis dan cantiknya!
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform rotate-2">
+                        <img id="img-slide-8" src="WhatsApp Image 2026-10-25 at 20.12.22 (1).jpeg" alt="Tuan Putri Septii 8" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(8)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Genggaman Kita -->
+        <div class="slide" data-slide="9">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-2">
+                        <img id="img-slide-9" src="WhatsApp Image 2026-10-25 at 20.12.21.jpeg" alt="Tuan Putri Septii 9" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(9)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Janji Sederhana</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Saling Genggam & Berjalan Bersama</h2>
+                    <p class="text-rose-100/80 text-xs md:text-sm leading-relaxed">
+                        Tetap saling melengkapi, saling mengerti, dan terus menggenggam jemari bersama dalam setiap langkah hidup kita ya sayang.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Galeri Momen Favorit -->
+        <div class="slide" data-slide="10">
+            <div class="glass-card rounded-3xl p-6 md:p-8 w-full max-w-3xl text-center shadow-2xl">
+                <span class="text-rose-400 font-handwriting text-2xl font-semibold">Koleksi Senyuman</span>
+                <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Galeri Cantik Tuan Putri Septii</h2>
+                
+                <div class="grid grid-cols-3 gap-3 md:gap-4 my-4">
+                    <div class="photo-frame rounded-xl overflow-hidden h-28 md:h-36 relative">
+                        <img id="img-slide-10-a" src="WhatsApp Image 2026-10-25 at 20.12.23 (1).jpeg" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(10, 'a')" class="upload-btn absolute top-1 right-1 upload-badge p-1.5 rounded-full text-white text-[10px]">
+                            <i class="fas fa-camera text-amber-300"></i>
+                        </button>
+                    </div>
+                    <div class="photo-frame rounded-xl overflow-hidden h-28 md:h-36 relative">
+                        <img id="img-slide-10-b" src="WhatsApp Image 2026-10-25 at 20.12.24.jpeg" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(10, 'b')" class="upload-btn absolute top-1 right-1 upload-badge p-1.5 rounded-full text-white text-[10px]">
+                            <i class="fas fa-camera text-amber-300"></i>
+                        </button>
+                    </div>
+                    <div class="photo-frame rounded-xl overflow-hidden h-28 md:h-36 relative">
+                        <img id="img-slide-10-c" src="WhatsApp Image 2026-10-25 at 20.12.22 (2).jpeg" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(10, 'c')" class="upload-btn absolute top-1 right-1 upload-badge p-1.5 rounded-full text-white text-[10px]">
+                            <i class="fas fa-camera text-amber-300"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-rose-200/90 font-handwriting text-xl">"Setiap sudut fotomu adalah keindahan favoritku!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Pesan Dari Hati Terdalam -->
+        <div class="slide" data-slide="11">
+            <div class="glass-card rounded-3xl p-6 md:p-10 w-full max-w-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="photo-frame rounded-2xl overflow-hidden w-52 h-60 md:w-64 md:h-72 relative transform -rotate-3">
+                        <img id="img-slide-11" src="WhatsApp Image 2026-10-25 at 20.12.23 (1).jpeg" alt="Tuan Putri Septii 11" class="w-full h-full object-cover cursor-pointer" onclick="openPhotoModal(this.src)">
+                        <button onclick="triggerUploadForSlide(11)" class="upload-btn absolute top-3 right-3 upload-badge px-3 py-1.5 rounded-full text-white text-xs font-medium flex items-center gap-1.5 shadow-lg border border-rose-400/40">
+                            <i class="fas fa-camera text-amber-300"></i> <span>Ganti</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-rose-400 font-handwriting text-2xl font-semibold">Cinta & Ketulusan</span>
+                    <h2 class="text-2xl md:text-4xl font-serif text-rose-100 font-bold mt-1 mb-4">Pesan Dari Hati Terdalam</h2>
+                    <p class="text-rose-100/90 text-xs md:text-sm leading-relaxed mb-4">
+                        Makasih ya Septii sudah mengizinkanku menjadi bagian dari harimu. Aku berjanji akan selalu berusaha menjaga senyuman dan kebahagiaanmu.
+                    </p>
+                    <p class="text-rose-300 font-serif text-lg font-bold">I Love You So Much, Septii! ❤️</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Special LOVE Particle Canvas Convergence -->
+        <div class="slide" data-slide="12">
+            <div class="glass-card rounded-3xl p-6 md:p-8 w-full max-w-3xl h-full flex flex-col items-center justify-between shadow-2xl relative overflow-hidden text-center">
+                <!-- Interactive Particle LOVE Canvas -->
+                <canvas id="loveCanvas" class="absolute inset-0 w-full h-full cursor-pointer z-0"></canvas>
+                
+                <div class="relative z-10 top-2 pointer-events-none">
+                    <span class="text-rose-300 font-handwriting text-2xl md:text-3xl">Akhir Dari Slide, Awal Cinta Kita ✨</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-white font-bold drop-shadow-lg">Love You Forever, Septii ❤️</h2>
+                </div>
+
+                <div class="relative z-10 bottom-2 pointer-events-auto flex flex-col items-center gap-2">
+                    <p class="text-rose-200 text-xs md:text-sm bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-rose-500/30">
+                        <i class="fas fa-hand-pointer text-amber-300 mr-1"></i> Klik pada layar canvas untuk kembang api cinta!
+                    </p>
+                    <button onclick="goToSlide(1)" class="bg-gradient-to-r from-rose-600 to-pink-600 text-white px-6 py-2 rounded-full text-xs md:text-sm font-medium shadow-lg hover:scale-105 active:scale-95 transition-all">
+                        <i class="fas fa-redo mr-1.5"></i> Ulangi Slide Dari Awal
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Slide Controls & Indicators -->
+    <footer class="fixed bottom-4 left-4 right-4 z-50 flex items-center justify-between max-w-4xl mx-auto">
+        <button onclick="prevSlide()" class="glass-card p-3 rounded-full text-rose-200 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-lg border border-rose-500/30" title="Slide Sebelumnya">
+            <i class="fas fa-chevron-left text-sm"></i>
+        </button>
+
+        <!-- Bullet Indicators -->
+        <div id="bullets-container" class="glass-card px-4 py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-lg border border-rose-500/30">
+            <!-- Dynamic bullets via JS -->
+        </div>
+
+        <button onclick="nextSlide()" class="glass-card p-3 rounded-full text-rose-200 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-lg border border-rose-500/30" title="Slide Selanjutnya">
+            <i class="fas fa-chevron-right text-sm"></i>
+        </button>
+    </footer>
+
+    <!-- Photo Modal Fullscreen Preview -->
+    <div id="photo-modal" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center p-4 backdrop-blur-md transition-all duration-300" onclick="closePhotoModal()">
+        <div class="relative max-w-3xl max-h-[90vh] rounded-2xl overflow-hidden border-2 border-rose-400/50 shadow-2xl" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" class="w-full h-full object-contain max-h-[85vh]">
+            <button onclick="closePhotoModal()" class="absolute top-4 right-4 bg-rose-600/80 text-white w-9 h-9 rounded-full flex items-center justify-center shadow-lg hover:bg-rose-600 transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // GLOBAL STATE
+        let currentSlide = 1;
+        const totalSlides = 12;
+        let activeTargetImgId = null;
+
+        // Music Controls
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        const vinylDisc = document.getElementById('vinyl-disc');
+        const musicText = document.getElementById('music-text');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                vinylDisc.classList.add('vinyl-paused');
+                musicText.innerText = "Putar Musik";
+                isPlaying = false;
+            } else {
+                music.play().then(() => {
+                    vinylDisc.classList.remove('vinyl-paused');
+                    musicText.innerText = "Pause Musik";
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log("Audio autoplay restriction: ", err);
+                });
+            }
+        });
+
+        // Custom MP3 File Upload
+        document.getElementById('audio-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                music.src = url;
+                music.play().then(() => {
+                    vinylDisc.classList.remove('vinyl-paused');
+                    musicText.innerText = "Pause Musik";
+                    isPlaying = true;
+                });
+            }
+        });
+
+        // SLIDE NAVIGATION
+        function updateSlides() {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            const activeSlideEl = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+            if (activeSlideEl) activeSlideEl.classList.add('active');
+
+            updateBullets();
+
+            // Trigger Canvas animation on Slide 12
+            if (currentSlide === 12) {
+                initLoveCanvas();
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+            updateSlides();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlides();
+        }
+
+        // GENERATE BULLETS
+        const bulletsContainer = document.getElementById('bullets-container');
+        for (let i = 1; i <= totalSlides; i++) {
+            const b = document.createElement('button');
+            b.className = `w-2 h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${i === 1 ? 'bg-rose-500 w-5 md:w-6' : 'bg-rose-300/40 hover:bg-rose-400'}`;
+            b.onclick = () => goToSlide(i);
+            b.setAttribute('data-bullet', i);
+            bulletsContainer.appendChild(b);
+        }
+
+        function updateBullets() {
+            document.querySelectorAll('#bullets-container button').forEach((b, idx) => {
+                const i = idx + 1;
+                if (i === currentSlide) {
+                    b.className = 'w-5 md:w-6 h-2 md:h-2.5 rounded-full bg-rose-500 transition-all duration-300 shadow-sm shadow-rose-500';
+                } else {
+                    b.className = 'w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-rose-300/40 hover:bg-rose-400 transition-all duration-300';
+                }
+            });
+        }
+
+        // KEYBOARD & SWIPE CONTROLS
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+        document.addEventListener('touchend', e => {
+            let touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        });
+
+        // ENVELOPE INTERACTION
+        function toggleEnvelope(el) {
+            const env = document.getElementById('main-envelope');
+            env.classList.toggle('open');
+        }
+
+        // PHOTO UPLOADER PER SLIDE
+        function triggerUploadForSlide(slideNum, subId = '') {
+            activeTargetImgId = subId ? `img-slide-${slideNum}-${subId}` : `img-slide-${slideNum}`;
+            document.getElementById('global-photo-input').click();
+        }
+
+        document.getElementById('global-photo-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && activeTargetImgId) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const imgEl = document.getElementById(activeTargetImgId);
+                    if (imgEl) imgEl.src = evt.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // TOGGLE EDIT BUTTONS (FOR CLEAN PRESENTATION)
+        let editButtonsVisible = true;
+        function toggleUploadButtons() {
+            editButtonsVisible = !editButtonsVisible;
+            document.querySelectorAll('.upload-btn').forEach(btn => {
+                btn.style.display = editButtonsVisible ? 'flex' : 'none';
+            });
+            document.getElementById('eye-icon').className = editButtonsVisible ? 'fas fa-eye' : 'fas fa-eye-slash text-rose-400';
+        }
+
+        // PHOTO MODAL PREVIEW
+        function openPhotoModal(src) {
+            document.getElementById('modal-img').src = src;
+            const modal = document.getElementById('photo-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closePhotoModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // FLOATING ROSE PETALS GENERATOR
+        const petalsContainer = document.getElementById('petals-container');
+        for (let i = 0; i < 15; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.width = (Math.random() * 12 + 10) + 'px';
+            petal.style.height = (Math.random() * 16 + 12) + 'px';
+            petal.style.animationDelay = (Math.random() * 10) + 's';
+            petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            petalsContainer.appendChild(petal);
+        }
+
+        // BACKGROUND STARRY NIGHT CANVAS
+        const bgCanvas = document.getElementById('bgCanvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        let stars = [];
+
+        function resizeBgCanvas() {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < 90; i++) {
+                stars.push({
+                    x: Math.random() * bgCanvas.width,
+                    y: Math.random() * bgCanvas.height,
+                    radius: Math.random() * 1.5 + 0.5,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.015 + 0.005
+                });
+            }
+        }
+        window.addEventListener('resize', resizeBgCanvas);
+        resizeBgCanvas();
+
+        function renderBg() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            stars.forEach(s => {
+                s.alpha += s.speed;
+                if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+                bgCtx.beginPath();
+                bgCtx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                bgCtx.fillStyle = `rgba(253, 164, 175, ${Math.abs(s.alpha)})`;
+                bgCtx.fill();
+            });
+            requestAnimationFrame(renderBg);
+        }
+        renderBg();
+
+        // SLIDE 12: SPECIAL LOVE PARTICLE CONVERGENCE CANVAS
+        let loveCanvas, loveCtx;
+        let particles = [];
+        let fireworks = [];
+        let lovePoints = [];
+        let canvasAnimId = null;
+
+        function initLoveCanvas() {
+            loveCanvas = document.getElementById('loveCanvas');
+            if (!loveCanvas) return;
+            loveCtx = loveCanvas.getContext('2d');
+            
+            const rect = loveCanvas.parentElement.getBoundingClientRect();
+            loveCanvas.width = rect.width;
+            loveCanvas.height = rect.height;
+
+            generateLoveShapePoints();
+            createParticles();
+
+            loveCanvas.onclick = (e) => {
+                const cRect = loveCanvas.getBoundingClientRect();
+                createHeartBurst(e.clientX - cRect.left, e.clientY - cRect.top);
+            };
+
+            if (canvasAnimId) cancelAnimationFrame(canvasAnimId);
+            animateLoveCanvas();
+        }
+
+        function generateLoveShapePoints() {
+            lovePoints = [];
+            const cx = loveCanvas.width / 2;
+            const cy = loveCanvas.height / 2 - 10;
+            const scale = Math.min(loveCanvas.width, loveCanvas.height) / 38;
+
+            for (let t = 0; t < Math.PI * 2; t += 0.05) {
+                // Heart parametric formula
+                const x = 16 * Math.pow(Math.sin(t), 3);
+                const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+                lovePoints.push({
+                    x: cx + x * scale,
+                    y: cy + y * scale
+                });
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            const count = Math.min(220, lovePoints.length * 2);
+            for (let i = 0; i < count; i++) {
+                const target = lovePoints[i % lovePoints.length];
+                particles.push({
+                    x: Math.random() * loveCanvas.width,
+                    y: Math.random() * loveCanvas.height,
+                    targetX: target.x,
+                    targetY: target.y,
+                    size: Math.random() * 3 + 2,
+                    color: i % 2 === 0 ? '#f43f5e' : '#fb7185',
+                    speed: Math.random() * 0.04 + 0.02
+                });
+            }
+        }
+
+        function createHeartBurst(x, y) {
+            for (let i = 0; i < 25; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 1;
+                fireworks.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    alpha: 1,
+                    size: Math.random() * 4 + 2,
+                    color: '#fda4af'
+                });
+            }
+        }
+
+        function animateLoveCanvas() {
+            loveCtx.clearRect(0, 0, loveCanvas.width, loveCanvas.height);
+
+            // Move particles toward target to form glowing LOVE heart shape
+            particles.forEach(p => {
+                p.x += (p.targetX - p.x) * p.speed;
+                p.y += (p.targetY - p.y) * p.speed;
+
+                loveCtx.beginPath();
+                loveCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                loveCtx.fillStyle = p.color;
+                loveCtx.shadowBlur = 12;
+                loveCtx.shadowColor = '#f43f5e';
+                loveCtx.fill();
+            });
+
+            // Render Fireworks Click Effects
+            fireworks.forEach((f, idx) => {
+                f.x += f.vx;
+                f.y += f.vy;
+                f.alpha -= 0.025;
+
+                if (f.alpha <= 0) {
+                    fireworks.splice(idx, 1);
+                } else {
+                    loveCtx.beginPath();
+                    loveCtx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
+                    loveCtx.fillStyle = `rgba(254, 205, 211, ${f.alpha})`;
+                    loveCtx.shadowBlur = 8;
+                    loveCtx.shadowColor = '#fda4af';
+                    loveCtx.fill();
+                }
+            });
+
+            canvasAnimId = requestAnimationFrame(animateLoveCanvas);
+        }
+
+        // INIT ON LOAD
+        window.onload = function() {
+            updateSlides();
+        };
+    </script>
+</body>
+</html>
